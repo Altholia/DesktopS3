@@ -1,0 +1,146 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "DesktopS3_UI/1.0.0": {
+        "dependencies": {
+          "DesktopS3_Helper": "1.0.0",
+          "DesktopS3_Models": "1.0.0",
+          "System.Web.Extensions": "3.5.0.0"
+        },
+        "runtime": {
+          "DesktopS3_UI.dll": {}
+        }
+      },
+      "DesktopS3_Helper/1.0.0": {
+        "runtime": {
+          "DesktopS3_Helper.dll": {}
+        }
+      },
+      "DesktopS3_Models/1.0.0": {
+        "runtime": {
+          "DesktopS3_Models.dll": {}
+        }
+      },
+      "System.Web.Extensions/3.5.0.0": {
+        "runtime": {
+          "System.Web.Extensions.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.30729.9151"
+          }
+        }
+      },
+      "System.Web.Abstractions/3.5.0.0": {
+        "runtime": {
+          "System.Web.Abstractions.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.30729.9151"
+          }
+        }
+      },
+      "System.Data.Linq/3.5.0.0": {
+        "runtime": {
+          "System.Data.Linq.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.30729.9151"
+          }
+        },
+        "resources": {
+          "zh-CHS/System.Data.Linq.resources.dll": {
+            "locale": "zh-CHS"
+          }
+        }
+      },
+      "System.Data.Services.Client/3.5.0.0": {
+        "runtime": {
+          "System.Data.Services.Client.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.30729.9151"
+          }
+        },
+        "resources": {
+          "zh-CHS/System.Data.Services.Client.resources.dll": {
+            "locale": "zh-CHS"
+          }
+        }
+      },
+      "System.Data.Services.Design/3.5.0.0": {
+        "runtime": {
+          "System.Data.Services.Design.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.30729.9151"
+          }
+        },
+        "resources": {
+          "zh-CHS/System.Data.Services.Design.resources.dll": {
+            "locale": "zh-CHS"
+          }
+        }
+      },
+      "System.Data.Entity/3.5.0.0": {
+        "runtime": {
+          "System.Data.Entity.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.30729.9151"
+          }
+        },
+        "resources": {
+          "zh-CHS/System.Data.Entity.resources.dll": {
+            "locale": "zh-CHS"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DesktopS3_UI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DesktopS3_Helper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DesktopS3_Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Web.Extensions/3.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Web.Abstractions/3.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Data.Linq/3.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Data.Services.Client/3.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Data.Services.Design/3.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Data.Entity/3.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

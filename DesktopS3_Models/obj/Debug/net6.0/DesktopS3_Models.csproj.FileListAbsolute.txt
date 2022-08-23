@@ -1,0 +1,12 @@
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\bin\Debug\net6.0\DesktopS3_Models.deps.json
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\bin\Debug\net6.0\DesktopS3_Models.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\bin\Debug\net6.0\DesktopS3_Models.pdb
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\obj\Debug\net6.0\DesktopS3_Models.csproj.AssemblyReference.cache
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\obj\Debug\net6.0\DesktopS3_Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\obj\Debug\net6.0\DesktopS3_Models.AssemblyInfoInputs.cache
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\obj\Debug\net6.0\DesktopS3_Models.AssemblyInfo.cs
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\obj\Debug\net6.0\DesktopS3_Models.csproj.CoreCompileInputs.cache
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\obj\Debug\net6.0\DesktopS3_Models.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\obj\Debug\net6.0\refint\DesktopS3_Models.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\obj\Debug\net6.0\DesktopS3_Models.pdb
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_Models\obj\Debug\net6.0\ref\DesktopS3_Models.dll
