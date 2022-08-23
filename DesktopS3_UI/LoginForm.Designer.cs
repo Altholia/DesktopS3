@@ -46,6 +46,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Telephone:";
             this.label1.MouseHover += new System.EventHandler(this.LoginForm_MouseHover);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             // 
             // Telephone_TextBox
             // 
@@ -56,6 +57,7 @@
             this.Telephone_TextBox.Size = new System.Drawing.Size(224, 32);
             this.Telephone_TextBox.TabIndex = 0;
             this.Telephone_TextBox.MouseHover += new System.EventHandler(this.LoginForm_MouseHover);
+            this.Telephone_TextBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             // 
             // label2
             // 
@@ -67,6 +69,7 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Password:";
             this.label2.MouseHover += new System.EventHandler(this.LoginForm_MouseHover);
+            this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             // 
             // Password_TextBox
             // 
@@ -78,6 +81,7 @@
             this.Password_TextBox.Size = new System.Drawing.Size(224, 32);
             this.Password_TextBox.TabIndex = 1;
             this.Password_TextBox.MouseHover += new System.EventHandler(this.LoginForm_MouseHover);
+            this.Password_TextBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             // 
             // Login_Button
             // 
@@ -90,6 +94,7 @@
             this.Login_Button.UseVisualStyleBackColor = true;
             this.Login_Button.Click += new System.EventHandler(this.Login_Button_Click);
             this.Login_Button.MouseHover += new System.EventHandler(this.LoginForm_MouseHover);
+            this.Login_Button.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             // 
             // Cancel_Button
             // 
@@ -102,6 +107,7 @@
             this.Cancel_Button.UseVisualStyleBackColor = true;
             this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
             this.Cancel_Button.MouseHover += new System.EventHandler(this.LoginForm_MouseHover);
+            this.Cancel_Button.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             // 
             // LoginForm
             // 
@@ -123,6 +129,7 @@
             this.Deactivate += new System.EventHandler(this.LoginForm_Deactivate);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.MouseHover += new System.EventHandler(this.LoginForm_MouseHover);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

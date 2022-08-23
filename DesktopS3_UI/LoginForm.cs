@@ -5,35 +5,35 @@ using System.Text.Json;
 using DesktopS3_Helper;
 using DesktopS3_Models.Models;
 using System.Web.Script.Serialization;
-using System.Xml;
 using DesktopS3_Models.DisplayDto;
-using Microsoft.VisualBasic.Devices;
 using static DesktopS3_Helper.AutoLockScreen;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace DesktopS3_UI
 {
     public partial class LoginForm : ParentForm
     {
-        [DllImport("user32.dll", EntryPoint = "FindWindow", CharSet = CharSet.Auto)]
+        [DllImport("user32.dll", EntryPoint = "FindWindow", CharSet = CharSet.Unicode)]
         private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);//查找窗体
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern int PostMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);//发送信息
+        [DllImport("user32.dll")]
+        private static extern int PostMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);//发送信息
 
         public const int WM_CLOSE = 0X10;
-
         public const int WM_MOUSEMOVE = 0X200;
 
         private static readonly JavaScriptSerializer _js = new();
         public LoginForm()
         {
             InitializeComponent();
-        }
+;        }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
             //AutoLockScreen();
             Instance.FormObject = this;
+
+            
         }
 
         /// <summary>
@@ -92,12 +92,32 @@ namespace DesktopS3_UI
             Application.Exit();
         }
 
+        /// <summary>
+        /// 当鼠标停留一段时间后，应当执行某些操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginForm_MouseHover(object sender, EventArgs e)
         {
             AutoLockScreen();
         }
 
+        /// <summary>
+        /// 当窗体隐藏时，应当释放某些东西
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginForm_Deactivate(object sender, EventArgs e)
+        {
+            ReleaseTask();
+        }
+
+        /// <summary>
+        /// 当鼠标移动时，应当执行一些操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoginForm_MouseMove(object sender, MouseEventArgs e)
         {
             ReleaseTask();
         }

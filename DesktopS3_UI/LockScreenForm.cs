@@ -2,7 +2,7 @@
 {
     public partial class LockScreenForm : ParentForm
     {
-        public static LockScreenForm? Instance { get; private set; }
+        public static LockScreenForm Instance { get; private set; }
         private readonly Form _form;
 
         protected override CreateParams CreateParams
@@ -23,11 +23,15 @@
             Instance = this;
         }
 
+        public LockScreenForm()
+        {
+            InitializeComponent();
+            Instance = this;
+        }
+
         private void LockScreenForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _form.Show();
-            AutoLockScreen();
-
             DesktopS3_Helper.AutoLockScreen.IsHide = false;
         }
     }

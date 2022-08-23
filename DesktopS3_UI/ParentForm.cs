@@ -1,12 +1,14 @@
 using System.Diagnostics;
+using System.Timers;
 using static DesktopS3_Helper.AutoLockScreen;
+using Timer = System.Timers.Timer;
 
 namespace DesktopS3_UI
 {
     public partial class ParentForm : Form
     {
-        private readonly CancellationTokenSource _source = new();
-        private Task? _task;
+        private Task _lockScreenTask;
+        private CancellationTokenSource _cts;
 
         public ParentForm()
         {
@@ -18,37 +20,38 @@ namespace DesktopS3_UI
         /// </summary>
         protected async void AutoLockScreen()
         {
+            _cts = new();
+
+            _lockScreenTask = new(LockScreenTask,_cts.Token);
+            _lockScreenTask.Start();
+            Debug.WriteLine($"{nameof(AutoLockScreen)}：锁屏任务正在启动");
+
             try
             {
-                _task?.Dispose(); //开始前也需要先释放一遍
-
-                var token = _source.Token;
-
-                _task = new(LockScreenTask, token);
-                _task.Start(); //任务启动
-                Debug.WriteLine($"锁屏任务已启动，任务ID为：{_task.Id}，启动时间为：{DateTime.Now}");
-
-                await Task.WhenAny(_task); //等待任务完成
-                if (_task.Status == TaskStatus.RanToCompletion) //如果任务完成，则释放线程
-                {
-                    _task.Dispose();
-                    Debug.WriteLine($"锁屏任务已释放，任务ID为：{_task.Id}，释放时间为：{DateTime.Now}");
-                }
+                await Task.WhenAny(_lockScreenTask);
             }
-            catch (InvalidOperationException e)
+            catch (AggregateException ex)
             {
-                await Console.Error.WriteLineAsync(e.ToString());
+                Debug.WriteLine($"锁屏任务被取消：" + ex.Message);
             }
         }
 
         /// <summary>
         /// 自动锁屏的任务
         /// </summary>
-        protected async void LockScreenTask()
+        protected void LockScreenTask(/*object? sender, ElapsedEventArgs e*/)
         {
-            await Task.Delay(6000);//等待十秒以后执行以下语句
             if (!IsHide)
             {
+                Task.Delay(5000).Wait();
+
+                CancellationToken token = _cts.Token;
+                if (token.IsCancellationRequested)
+                {
+                    Debug.WriteLine($"{nameof(LockScreenTask)}：锁屏任务已被取消");
+                    token.ThrowIfCancellationRequested();
+                }
+
                 Instance.FormObject?.BeginInvoke(() =>
                 {
                     Instance.FormObject.Hide();
@@ -58,23 +61,27 @@ namespace DesktopS3_UI
                 });
 
                 IsHide = true;
-                _source.Cancel();
             }
         }
 
         /// <summary>
         /// 当窗体关闭时释放任务
         /// </summary>
-        protected async void ReleaseTask()
+        protected void ReleaseTask()
         {
-            _task?.Dispose();
+            if (_lockScreenTask == null || _cts == null || _lockScreenTask.Status == TaskStatus.Canceled)
+            {
+                Debug.WriteLine($"{nameof(ReleaseTask)}：任务为空或取消令牌为空或任务已被取消");
+                return;
+            }
+
             try
             {
-                Debug.WriteLine($"锁屏任务已释放，任务ID为：{_task.Id}，释放时间为：{DateTime.Now}");
+                _cts.Cancel();
             }
-            catch (ArgumentNullException e)
+            catch (ObjectDisposedException)
             {
-                await Console.Error.WriteLineAsync($"锁屏任务为空，无法释放。错误信息：{e.Message}");
+                Debug.WriteLine($"{nameof(ReleaseTask)}：令牌已被释放");
             }
         }
     }
