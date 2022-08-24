@@ -37,3 +37,7 @@ D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\obj\Debug\net6.
 D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\obj\Debug\net6.0-windows\DesktopS3_UI.AssetStatisticsForm.resources
 D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.0-windows\System.Windows.Forms.DataVisualization.dll
 D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.0-windows\System.Windows.Forms.DataVisualization.xml
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.0-windows\DesktopS3_BLL.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.0-windows\DesktopS3_DAL.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.0-windows\DesktopS3_BLL.pdb
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.0-windows\DesktopS3_DAL.pdb

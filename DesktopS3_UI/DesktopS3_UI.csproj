@@ -17,6 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DesktopS3_BLL\DesktopS3_BLL.csproj" />
     <ProjectReference Include="..\DesktopS3_Helper\DesktopS3_Helper.csproj" />
     <ProjectReference Include="..\DesktopS3_Models\DesktopS3_Models.csproj" />
   </ItemGroup>

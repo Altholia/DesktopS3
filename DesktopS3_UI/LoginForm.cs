@@ -3,12 +3,10 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Text.Json;
 using DesktopS3_Helper;
-using DesktopS3_Models.Models;
 using System.Web.Script.Serialization;
 using DesktopS3_Models.DisplayDto;
+using DesktopS3_Models.Parameter;
 using static DesktopS3_Helper.AutoLockScreen;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
-using Timer = System.Timers.Timer;
 
 namespace DesktopS3_UI
 {
@@ -43,7 +41,7 @@ namespace DesktopS3_UI
         /// <param name="e"></param>
         private async void Login_Button_Click(object sender, EventArgs e)
         {
-            LoginModel login = new()
+            LoginParameter login = new()
             {
                 Telephone = Telephone_TextBox.Text.Trim(),
                 Password = Password_TextBox.Text.Trim()

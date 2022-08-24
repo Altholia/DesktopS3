@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "DesktopS3_BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DesktopS3_DAL": "1.0.0",
+          "DesktopS3_Helper": "1.0.0",
+          "DesktopS3_Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DesktopS3_BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DesktopS3_BLL.dll": {}
+        }
+      },
+      "DesktopS3_DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DesktopS3_Helper": "1.0.0",
+          "DesktopS3_Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DesktopS3_DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DesktopS3_DAL.dll": {}
+        }
+      },
       "DesktopS3_Helper/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -25,6 +54,16 @@
     }
   },
   "libraries": {
+    "DesktopS3_BLL/1.0.0": {
+      "type": "project",
+      "path": "../DesktopS3_BLL/DesktopS3_BLL.csproj",
+      "msbuildProject": "../DesktopS3_BLL/DesktopS3_BLL.csproj"
+    },
+    "DesktopS3_DAL/1.0.0": {
+      "type": "project",
+      "path": "../DesktopS3_DAL/DesktopS3_DAL.csproj",
+      "msbuildProject": "../DesktopS3_DAL/DesktopS3_DAL.csproj"
+    },
     "DesktopS3_Helper/1.0.0": {
       "type": "project",
       "path": "../DesktopS3_Helper/DesktopS3_Helper.csproj",
@@ -38,6 +77,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "DesktopS3_BLL >= 1.0.0",
       "DesktopS3_Helper >= 1.0.0",
       "DesktopS3_Models >= 1.0.0"
     ]
@@ -75,6 +115,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
+            "D:\\E\\C# Engineering\\Session3重构\\DesktopS3Winform\\DesktopS3_BLL\\DesktopS3_BLL.csproj": {
+              "projectPath": "D:\\E\\C# Engineering\\Session3重构\\DesktopS3Winform\\DesktopS3_BLL\\DesktopS3_BLL.csproj"
+            },
             "D:\\E\\C# Engineering\\Session3重构\\DesktopS3Winform\\DesktopS3_Helper\\DesktopS3_Helper.csproj": {
               "projectPath": "D:\\E\\C# Engineering\\Session3重构\\DesktopS3Winform\\DesktopS3_Helper\\DesktopS3_Helper.csproj"
             },

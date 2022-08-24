@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "DesktopS3_UI/1.0.0": {
         "dependencies": {
+          "DesktopS3_BLL": "1.0.0",
           "DesktopS3_Helper": "1.0.0",
           "DesktopS3_Models": "1.0.0",
           "System.Web.Extensions": "3.5.0.0",
@@ -15,6 +16,39 @@
         },
         "runtime": {
           "DesktopS3_UI.dll": {}
+        }
+      },
+      "DesktopS3_BLL/1.0.0": {
+        "dependencies": {
+          "DesktopS3_DAL": "1.0.0",
+          "DesktopS3_Helper": "1.0.0",
+          "DesktopS3_Models": "1.0.0"
+        },
+        "runtime": {
+          "DesktopS3_BLL.dll": {}
+        },
+        "resources": {
+          "zh-CHS/System.Data.Linq.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "zh-CHS/System.Data.Services.Client.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "zh-CHS/System.Data.Services.Design.resources.dll": {
+            "locale": "zh-CHS"
+          },
+          "zh-CHS/System.Data.Entity.resources.dll": {
+            "locale": "zh-CHS"
+          }
+        }
+      },
+      "DesktopS3_DAL/1.0.0": {
+        "dependencies": {
+          "DesktopS3_Helper": "1.0.0",
+          "DesktopS3_Models": "1.0.0"
+        },
+        "runtime": {
+          "DesktopS3_DAL.dll": {}
         }
       },
       "DesktopS3_Helper/1.0.0": {
@@ -107,6 +141,16 @@
   },
   "libraries": {
     "DesktopS3_UI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DesktopS3_BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DesktopS3_DAL/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

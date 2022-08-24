@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DesktopS3_DAL\DesktopS3_DAL.csproj" />
+    <ProjectReference Include="..\DesktopS3_Helper\DesktopS3_Helper.csproj" />
+    <ProjectReference Include="..\DesktopS3_Models\DesktopS3_Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web.Extensions">
+      <HintPath>C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.5\System.Web.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

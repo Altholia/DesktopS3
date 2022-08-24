@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="DisplayDto\" />
+    <Folder Include="Entities\" />
   </ItemGroup>
 
 </Project>

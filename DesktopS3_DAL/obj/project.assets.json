@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "DesktopS3_Helper/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DesktopS3_Helper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DesktopS3_Helper.dll": {}
+        }
+      },
+      "DesktopS3_Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DesktopS3_Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DesktopS3_Models.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DesktopS3_Helper/1.0.0": {
+      "type": "project",
+      "path": "../DesktopS3_Helper/DesktopS3_Helper.csproj",
+      "msbuildProject": "../DesktopS3_Helper/DesktopS3_Helper.csproj"
+    },
+    "DesktopS3_Models/1.0.0": {
+      "type": "project",
+      "path": "../DesktopS3_Models/DesktopS3_Models.csproj",
+      "msbuildProject": "../DesktopS3_Models/DesktopS3_Models.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "DesktopS3_Helper >= 1.0.0",
+      "DesktopS3_Models >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Saber.WIN-AKU8KMRJ94U\\.nuget\\packages\\": {},
@@ -39,7 +74,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\E\\C# Engineering\\Session3重构\\DesktopS3Winform\\DesktopS3_Helper\\DesktopS3_Helper.csproj": {
+              "projectPath": "D:\\E\\C# Engineering\\Session3重构\\DesktopS3Winform\\DesktopS3_Helper\\DesktopS3_Helper.csproj"
+            },
+            "D:\\E\\C# Engineering\\Session3重构\\DesktopS3Winform\\DesktopS3_Models\\DesktopS3_Models.csproj": {
+              "projectPath": "D:\\E\\C# Engineering\\Session3重构\\DesktopS3Winform\\DesktopS3_Models\\DesktopS3_Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -2,7 +2,7 @@
 
 public class HttpUrl
 {
-    private static string _url = "https://localhost:5001/api/Desktop";
+    private static readonly string _url = "https://localhost:5001/api/Desktop";
 
     /// <summary>
     /// Post请求
@@ -19,8 +19,8 @@ public class HttpUrl
             HttpContent content = new StringContent(body);
             content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
 
-            _url += uri;
-            HttpResponseMessage response = await client.PostAsync(_url, content);
+            string url = _url + uri;
+            HttpResponseMessage response = await client.PostAsync(url, content);
 
             return response;
         }
@@ -43,8 +43,8 @@ public class HttpUrl
         {
             using HttpClient client = new();
 
-            _url += uri;
-            var response = await client.GetAsync(_url);
+            string url = _url + uri;
+            var response = await client.GetAsync(url);
 
             return response;
         }
