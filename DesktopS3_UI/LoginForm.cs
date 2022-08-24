@@ -8,6 +8,7 @@ using System.Web.Script.Serialization;
 using DesktopS3_Models.DisplayDto;
 using static DesktopS3_Helper.AutoLockScreen;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
+using Timer = System.Timers.Timer;
 
 namespace DesktopS3_UI
 {
@@ -30,10 +31,7 @@ namespace DesktopS3_UI
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            //AutoLockScreen();
             Instance.FormObject = this;
-
-            
         }
 
         /// <summary>
@@ -109,7 +107,7 @@ namespace DesktopS3_UI
         /// <param name="e"></param>
         private void LoginForm_Deactivate(object sender, EventArgs e)
         {
-            ReleaseTask();
+            StopTask();
         }
 
         /// <summary>
@@ -119,7 +117,7 @@ namespace DesktopS3_UI
         /// <param name="e"></param>
         private void LoginForm_MouseMove(object sender, MouseEventArgs e)
         {
-            ReleaseTask();
+            StopTask();
         }
     }
 }
