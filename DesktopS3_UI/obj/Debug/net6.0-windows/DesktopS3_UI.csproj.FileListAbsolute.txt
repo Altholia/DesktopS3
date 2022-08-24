@@ -34,3 +34,6 @@ D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.
 D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.0-windows\zh-CHS\System.Data.Entity.resources.dll
 D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\obj\Debug\net6.0-windows\DesktopS3_UI.NavigationScreenForm.resources
 D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\obj\Debug\net6.0-windows\DesktopS3_UI.Properties.Resources.resources
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\obj\Debug\net6.0-windows\DesktopS3_UI.AssetStatisticsForm.resources
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.0-windows\System.Windows.Forms.DataVisualization.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_UI\bin\Debug\net6.0-windows\System.Windows.Forms.DataVisualization.xml

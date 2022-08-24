@@ -14,6 +14,8 @@ namespace DesktopS3_UI
 {
     public partial class LoginForm : ParentForm
     {
+        public static LoginForm InstanceForm => Singleton<LoginForm>.Instance;
+
         [DllImport("user32.dll", EntryPoint = "FindWindow", CharSet = CharSet.Unicode)]
         private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);//查找窗体
 
@@ -69,10 +71,12 @@ namespace DesktopS3_UI
 
                 StaffDisplayDto staff = _js.Deserialize<StaffDisplayDto>(staffString);
                 if (staff == null)
-                    MessageBox.Show(@"查询数据为空", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(@"用户不存在", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
-
+                    Hide();
+                    new NavigationScreenForm().Show();
+                    return;
                 }
             }
 
