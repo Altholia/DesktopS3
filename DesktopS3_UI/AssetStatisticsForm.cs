@@ -2,6 +2,7 @@
 using DesktopS3_Models.DisplayDto;
 using DesktopS3_Models.Entities;
 using static DesktopS3_BLL.DesktopBll;
+using static DesktopS3_Helper.AutoLockScreen;
 
 namespace DesktopS3_UI
 {
@@ -24,13 +25,12 @@ namespace DesktopS3_UI
 
         private void AssetStatisticsForm_Load(object sender, EventArgs e)
         {
+            /*--------------------用于给UpkeepType_ComboBox、Name_ComboBox和Category_ComboBox赋初值-------------------------*/
             Task<IEnumerable<UpkeepType>> upkeepTypeTask = InstanceBll.GetUpkeepTypesAsync();
             Task<IEnumerable<Asset>> assetTask = InstanceBll.GetAssetCollectionAsync();
             Task<IEnumerable<AssetCategory>> assetCategoryTask = InstanceBll.GetAssetCategoryCollectionAsync();
 
             Parallel.Invoke(AssignUpkeepTypeComboBox, AssignNameComboBox, AssignCategoryComboBox);
-
-            /*--------------------用于给UpkeepType_ComboBox、Name_ComboBox和Category_ComboBox赋初值-------------------------*/
 
             async void AssignUpkeepTypeComboBox()//用于给UpkeepType_ComboBox赋值
             {
@@ -90,6 +90,20 @@ namespace DesktopS3_UI
             }
         }
 
+        private async void AssetStatisticsForm_MouseHover(object sender, EventArgs e)
+        {
+            await Task.Delay(Instance.Hover);//停留，解决鼠标停留问题
+            AutoLockScreen(this);//当鼠标停留一段时间后则开启自动锁屏
+        }
 
+        private void AssetStatisticsForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            StopTask();//当鼠标移动时重置自动锁屏的时间
+        }
+
+        private void AssetStatisticsForm_Deactivate(object sender, EventArgs e)
+        {
+            ReleaseTask();//当窗体隐藏时释放锁屏任务
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace DesktopS3_UI
     public partial class ParentForm : Form
     {
         private Timer _timer;
+        private Form _form;
 
         public ParentForm()
         {
@@ -17,13 +18,12 @@ namespace DesktopS3_UI
         /// <summary>
         /// 调用自动锁屏方法
         /// </summary>
-        protected void AutoLockScreen()
+        protected void AutoLockScreen(Form form)
         {
-            if (Instance.Hover == 0)
-            {
-                _timer = new(5000);
-                _timer.Elapsed += LockScreenTask;
-            }
+            _form = form;
+
+            _timer = new(2000);
+            _timer.Elapsed += LockScreenTask;
 
             _timer.Start();
         }
@@ -37,9 +37,9 @@ namespace DesktopS3_UI
             {
                 Instance.FormObject?.BeginInvoke(() =>
                 {
-                    Instance.FormObject.Hide();
+                    _form.Hide();
 
-                    var lockScreenForm = new LockScreenForm(Instance.FormObject);
+                    var lockScreenForm = new LockScreenForm(_form);
                     LockScreenForm.Instance?.Show();
                 });
 

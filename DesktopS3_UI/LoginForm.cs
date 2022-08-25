@@ -73,7 +73,7 @@ namespace DesktopS3_UI
                 else
                 {
                     Hide();
-                    new NavigationScreenForm().Show();
+                    new AssetStatisticsForm().Show();
                     return;
                 }
             }
@@ -97,9 +97,10 @@ namespace DesktopS3_UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LoginForm_MouseHover(object sender, EventArgs e)
+        private async void LoginForm_MouseHover(object sender, EventArgs e)
         {
-            AutoLockScreen();
+            await Task.Delay(Instance.Hover);//停留，解决敏感问题
+            AutoLockScreen(this);
         }
 
         /// <summary>
@@ -109,7 +110,7 @@ namespace DesktopS3_UI
         /// <param name="e"></param>
         private void LoginForm_Deactivate(object sender, EventArgs e)
         {
-            StopTask();
+            ReleaseTask();
         }
 
         /// <summary>

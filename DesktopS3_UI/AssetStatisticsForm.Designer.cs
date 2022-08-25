@@ -101,6 +101,8 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Asset Statistics";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label1.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // panel1
             // 
@@ -113,6 +115,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1258, 43);
             this.panel1.TabIndex = 1;
+            this.panel1.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // label2
             // 
@@ -123,6 +127,8 @@
             this.label2.Size = new System.Drawing.Size(241, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Asset Upkeeped Statistics";
+            this.label2.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // panel2
             // 
@@ -132,6 +138,8 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 43);
             this.panel2.TabIndex = 0;
+            this.panel2.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // panel3
             // 
@@ -144,6 +152,8 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1258, 60);
             this.panel3.TabIndex = 2;
+            this.panel3.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // UpkeepType_ComboBox
             // 
@@ -154,6 +164,8 @@
             this.UpkeepType_ComboBox.Name = "UpkeepType_ComboBox";
             this.UpkeepType_ComboBox.Size = new System.Drawing.Size(184, 35);
             this.UpkeepType_ComboBox.TabIndex = 1;
+            this.UpkeepType_ComboBox.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.UpkeepType_ComboBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // label3
             // 
@@ -164,6 +176,8 @@
             this.label3.Size = new System.Drawing.Size(134, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Upkeep Type:";
+            this.label3.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.label3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // Upkeep_DataGridView
             // 
@@ -196,6 +210,8 @@
             this.Upkeep_DataGridView.RowTemplate.Height = 45;
             this.Upkeep_DataGridView.Size = new System.Drawing.Size(1258, 273);
             this.Upkeep_DataGridView.TabIndex = 1;
+            this.Upkeep_DataGridView.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.Upkeep_DataGridView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // AssetNumber
             // 
@@ -256,6 +272,8 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1258, 43);
             this.panel4.TabIndex = 1;
+            this.panel4.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // label4
             // 
@@ -266,6 +284,8 @@
             this.label4.Size = new System.Drawing.Size(99, 25);
             this.label4.TabIndex = 1;
             this.label4.Text = "All Assets";
+            this.label4.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.label4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // panel5
             // 
@@ -275,6 +295,8 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(10, 43);
             this.panel5.TabIndex = 0;
+            this.panel5.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // panel6
             // 
@@ -290,6 +312,8 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1258, 60);
             this.panel6.TabIndex = 2;
+            this.panel6.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.panel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // Search_Button
             // 
@@ -300,6 +324,8 @@
             this.Search_Button.TabIndex = 2;
             this.Search_Button.Text = "Search";
             this.Search_Button.UseVisualStyleBackColor = true;
+            this.Search_Button.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.Search_Button.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // Category_ComboBox
             // 
@@ -311,6 +337,8 @@
             this.Category_ComboBox.Size = new System.Drawing.Size(248, 35);
             this.Category_ComboBox.Sorted = true;
             this.Category_ComboBox.TabIndex = 1;
+            this.Category_ComboBox.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.Category_ComboBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // label6
             // 
@@ -321,6 +349,8 @@
             this.label6.Size = new System.Drawing.Size(152, 25);
             this.label6.TabIndex = 0;
             this.label6.Text = "Asset Category:";
+            this.label6.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.label6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // Name_Combox
             // 
@@ -332,6 +362,8 @@
             this.Name_Combox.Size = new System.Drawing.Size(248, 35);
             this.Name_Combox.Sorted = true;
             this.Name_Combox.TabIndex = 1;
+            this.Name_Combox.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.Name_Combox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // label5
             // 
@@ -342,6 +374,8 @@
             this.label5.Size = new System.Drawing.Size(124, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Asset Name:";
+            this.label5.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // dataGridView1
             // 
@@ -382,6 +416,8 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1258, 273);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.dataGridView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -460,7 +496,10 @@
             this.Controls.Add(this.panel3);
             this.Name = "AssetStatisticsForm";
             this.Text = "AssetStatisticsForm";
+            this.Deactivate += new System.EventHandler(this.AssetStatisticsForm_Deactivate);
             this.Load += new System.EventHandler(this.AssetStatisticsForm_Load);
+            this.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
