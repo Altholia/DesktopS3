@@ -164,6 +164,7 @@
             this.UpkeepType_ComboBox.Name = "UpkeepType_ComboBox";
             this.UpkeepType_ComboBox.Size = new System.Drawing.Size(184, 35);
             this.UpkeepType_ComboBox.TabIndex = 1;
+            this.UpkeepType_ComboBox.TextChanged += new System.EventHandler(this.UpkeepType_ComboBox_TextChanged);
             this.UpkeepType_ComboBox.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
             this.UpkeepType_ComboBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 

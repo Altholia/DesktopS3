@@ -10,8 +10,10 @@ public class Asset
     public string Specification { get; set; }
     public int UpkeepTypeId { get; set; }
     public decimal Price { get; set; }
+    public int UpkeepCircle { get; set; }
     public DateTime ManufactureDate { get; set; }
     public DateTime ServiceDate { get; set; }
     public DateTime RegistrationTime { get; set; }
     public Department Department { get; set; }
+    public IEnumerable<UpkeepRecord> UpkeepRecords { get; set; }
 }

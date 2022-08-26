@@ -22,7 +22,7 @@ namespace DesktopS3_UI
         {
             _form = form;
 
-            _timer = new(2000);
+            _timer = new(20000000);
             _timer.Elapsed += LockScreenTask;
 
             _timer.Start();
