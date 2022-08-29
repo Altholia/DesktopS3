@@ -11,6 +11,8 @@
           "DesktopS3_DAL": "1.0.0",
           "DesktopS3_Helper": "1.0.0",
           "DesktopS3_Models": "1.0.0",
+          "EntityFramework": "6.0.0.0",
+          "EntityFramework.SqlServer": "6.0.0.0",
           "System.Web.Extensions": "3.5.0.0"
         },
         "runtime": {
@@ -128,6 +130,32 @@
       "DesktopS3_Models/1.0.0": {
         "runtime": {
           "DesktopS3_Models.dll": {}
+        }
+      },
+      "EntityFramework/6.0.0.0": {
+        "runtime": {
+          "EntityFramework.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.2.61023.0"
+          }
+        },
+        "resources": {
+          "zh-Hans/EntityFramework.resources.dll": {
+            "locale": "zh-Hans"
+          }
+        }
+      },
+      "EntityFramework.SqlServer/6.0.0.0": {
+        "runtime": {
+          "EntityFramework.SqlServer.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.2.61023.0"
+          }
+        },
+        "resources": {
+          "zh-Hans/EntityFramework.SqlServer.resources.dll": {
+            "locale": "zh-Hans"
+          }
         }
       },
       "System.Web.Extensions/3.5.0.0": {
@@ -364,6 +392,16 @@
     },
     "DesktopS3_Models/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EntityFramework/6.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EntityFramework.SqlServer/6.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

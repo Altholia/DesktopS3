@@ -61,3 +61,9 @@ D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\obj\Debug\net6
 D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\obj\Debug\net6.0\refint\DesktopS3_BLL.dll
 D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\obj\Debug\net6.0\DesktopS3_BLL.pdb
 D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\obj\Debug\net6.0\ref\DesktopS3_BLL.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\bin\Debug\net6.0\EntityFramework.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\bin\Debug\net6.0\EntityFramework.SqlServer.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\bin\Debug\net6.0\EntityFramework.xml
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\bin\Debug\net6.0\EntityFramework.SqlServer.xml
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\bin\Debug\net6.0\zh-Hans\EntityFramework.resources.dll
+D:\E\C# Engineering\Session3重构\DesktopS3Winform\DesktopS3_BLL\bin\Debug\net6.0\zh-Hans\EntityFramework.SqlServer.resources.dll

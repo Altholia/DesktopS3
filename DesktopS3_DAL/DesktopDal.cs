@@ -24,7 +24,7 @@ public class DesktopDal
         const string _uri = $"/UpkeepTypes";
 
         HttpResponseMessage message = await HttpGet(_uri);
-        if (message.StatusCode == HttpStatusCode.NotFound)
+        if (message == null||message.StatusCode == HttpStatusCode.NotFound)
             return null;
 
         string upkeepType = await message.Content.ReadAsStringAsync();
@@ -48,7 +48,8 @@ public class DesktopDal
             return null;
         }
 
-        string uri = $"?Name = {name}";
+        string[] names = name.Split(' ');
+        string uri = $"/UpkeepType/Name/?Name={names[0]}+{names[1]}";
         HttpResponseMessage message = await HttpGet(uri);
         if (message == null!)
             return null;
@@ -67,19 +68,22 @@ public class DesktopDal
     /// 查询出所有的 Asset 信息，包括它的子资源Department、upkeepRecord
     /// </summary>
     /// <returns>返回查询到的 Asset 集合</returns>
-    public async Task<IEnumerable<Asset>> GetAssetCollectionAsync(int? assetId = null, int? upkeepTypeId = null)
+    public async Task<IEnumerable<Asset>> GetAssetCollectionAsync(int? assetId = null, int? upkeepTypeId = null,
+        string assetName=null!,int? assetCategoryId=null)
     {
         const string _uri = $"/Asset";
 
-        GetAssetCollection parameter = new()
+        GetAssetCollectionParameter parameter = new()
         {
             AssetId = assetId,
-            UpkeepTypeId = upkeepTypeId
+            UpkeepTypeId = upkeepTypeId,
+            AssetName=assetName,
+            CategoryId = assetCategoryId
         };
         var body = _js.Serialize(parameter);
 
         HttpResponseMessage message = await HttpPost(_uri, body);
-        if (message.StatusCode != HttpStatusCode.OK || message == null!)
+        if (message == null!||message.StatusCode != HttpStatusCode.OK)
             return null;
 
         string assetString = await message.Content.ReadAsStringAsync();
@@ -99,7 +103,7 @@ public class DesktopDal
         const string _uri = $"/AssetCategories";
 
         HttpResponseMessage message = await HttpGet(_uri);
-        if (message.StatusCode != HttpStatusCode.OK || message == null!)
+        if (message == null! || message.StatusCode != HttpStatusCode.OK)
             return null;
 
         string assetCategoryString = await message.Content.ReadAsStringAsync();
@@ -108,5 +112,29 @@ public class DesktopDal
             return null;
 
         return dtoCollection;
+    }
+
+    /// <summary>
+    /// 根据Name字段查询对应的AssetCategory信息
+    /// </summary>
+    /// <param name="name">查询条件</param>
+    /// <returns>返回查询到的AssetCategory信息</returns>
+    public async Task<AssetCategory> GetAssetCategoryAsync(string name)
+    {
+        string _uri = $"/AssetCategory/{name}";
+
+        HttpResponseMessage message = await HttpGet(_uri);
+        if (message.StatusCode != HttpStatusCode.OK || message == null!)
+            return null;
+
+        string assetCategoryString = await message.Content.ReadAsStringAsync();
+        if (assetCategoryString == null)
+            return null;
+
+        AssetCategory dto = _js.Deserialize<AssetCategory>(assetCategoryString);
+        if (dto == null)
+            return null;
+
+        return dto;
     }
 }

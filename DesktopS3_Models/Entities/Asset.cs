@@ -16,4 +16,5 @@ public class Asset
     public DateTime RegistrationTime { get; set; }
     public Department Department { get; set; }
     public IEnumerable<UpkeepRecord> UpkeepRecords { get; set; }
+    public AssetCategory Category { get; set; }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Diagnostics;
 using DesktopS3_Models.DisplayDto;
 using DesktopS3_Models.Entities;
 using static DesktopS3_BLL.AssetStatisticsFormBll;
@@ -59,15 +60,20 @@ namespace DesktopS3_UI
                 try
                 {
                     IEnumerable<Asset> dtoCollection = await assetTask;
-                    if (dtoCollection == null)
-                        return;
-
                     if (Name_Combox.Items.Count == dtoCollection.Count())
                         return;
 
                     BeginInvoke(() => { Name_Combox.Items.Clear(); });
                     Parallel.ForEach(dtoCollection,
                         dto => { BeginInvoke(() => { Name_Combox.Items.Add(dto.Name); }); });
+                }
+                catch (ArgumentNullException)
+                {
+                    var message = MessageBox.Show(@"数据加载出错，请重试！！！", @"错误", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (message == DialogResult.Retry)
+                        AssignNameComboBox();
+                    else
+                        return;
                 }
                 finally
                 {
@@ -87,6 +93,14 @@ namespace DesktopS3_UI
                     Parallel.ForEach(dtoCollection,
                         dto => { BeginInvoke(() => { Category_ComboBox.Items.Add(dto.Name); }); });
                 }
+                catch(ArgumentNullException)
+                {
+                    var message = MessageBox.Show(@"数据加载出错，请重试！！！", @"错误", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (message == DialogResult.Retry)
+                        AssignCategoryComboBox();
+                    else
+                        return;
+                }
                 finally
                 {
                     assetCategoryTask.Dispose();
@@ -95,15 +109,72 @@ namespace DesktopS3_UI
         }
         private async void UpkeepType_ComboBox_TextChanged(object sender, EventArgs e)
         {
-            //string upkeepTypeName = UpkeepType_ComboBox.Text.Trim();
-            //UpkeepType upkeepType = await InstanceBll.GetUpkeepTypeByNameAsync(upkeepTypeName);
-            //if (upkeepType == null!)
-            //{
-            //    MessageBox.Show(@"数据出错，请稍后重试……", @"错误", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-            //    return;
-            //}
+            string upkeepTypeName = UpkeepType_ComboBox.Text.Trim();
 
-            //IEnumerable<Asset> dtoCollection = await InstanceBll.GetAssetCollectionAsync(upkeepTypeId:upkeepType.Id);
+            IEnumerable<UpkeepDataGridViewDisplayDto> dtoCollection = await 
+                GetUpkeepDataGridViewInformation(upkeepTypeName);
+            if (dtoCollection == null)
+            {
+                MessageBox.Show(@"数据出错，请稍后重试……", @"错误", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return;
+            }
+
+            /*----------------------------------用于给Upkeep_DataGridView控件填充数据---------------------------------------*/
+            int row;
+            Upkeep_DataGridView.Rows.Clear();//清除一波，以免重复添加
+            Parallel.ForEach(dtoCollection, dto =>
+            {
+                BeginInvoke(() =>
+                {
+                    lock (Upkeep_DataGridView.Rows)
+                    {
+                        row = Upkeep_DataGridView.Rows.Add();
+                        for (int column = 0; column < dto.Length; column++)
+                        {
+                            if (Convert.ToInt32(dto[5]) <= 0 && column == 5)
+                                Upkeep_DataGridView.Rows[row].Cells[5].Style = new()
+                                {
+                                    BackColor = Color.Red
+                                };
+
+                            Upkeep_DataGridView.Rows[row].Cells[column].Value = dto[column];
+                        }
+                    }
+                });
+            });
+        }
+
+        private async void Search_Button_Click(object sender, EventArgs e)
+        {
+            /*-----------------------------------用于给Asset_DataGridView控件填充数据----------------------------------------*/
+            Asset_DataGridView.Rows.Clear();//清除一波
+
+            string assetName = Name_Combox.Text.Trim();
+            string categoryName = Category_ComboBox.Text.Trim();
+
+            IEnumerable<AssetDataGridViewDisplayDto> dtoCollection = 
+                await GetAssetDataGridViewInformationAsync(assetName, categoryName);
+
+            if (dtoCollection==null)
+            {
+                MessageBox.Show(@"没有查找到相关的信息", @"错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                return;
+            }
+
+            Parallel.ForEach(dtoCollection, dto =>
+            {
+                BeginInvoke(() =>
+                {
+                    lock (Asset_DataGridView.Rows)
+                    {
+                        int row = Asset_DataGridView.Rows.Add();
+                        for (int column = 0; column < Asset_DataGridView.Columns.Count; column++)
+                        {
+                            Asset_DataGridView.Rows[row].Cells[column].Value = dto[column];
+                        }
+                    }
+                });
+            });
         }
 
         private async void AssetStatisticsForm_MouseHover(object sender, EventArgs e)

@@ -56,7 +56,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Name_Combox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Asset_DataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AssetCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Upkeep_DataGridView)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Asset_DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -163,6 +163,7 @@
             this.UpkeepType_ComboBox.Location = new System.Drawing.Point(154, 15);
             this.UpkeepType_ComboBox.Name = "UpkeepType_ComboBox";
             this.UpkeepType_ComboBox.Size = new System.Drawing.Size(184, 35);
+            this.UpkeepType_ComboBox.Sorted = true;
             this.UpkeepType_ComboBox.TabIndex = 1;
             this.UpkeepType_ComboBox.TextChanged += new System.EventHandler(this.UpkeepType_ComboBox_TextChanged);
             this.UpkeepType_ComboBox.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
@@ -260,7 +261,6 @@
             this.TimeFromTheNext.HeaderText = "TimeFromTheNext";
             this.TimeFromTheNext.Name = "TimeFromTheNext";
             this.TimeFromTheNext.ReadOnly = true;
-            this.TimeFromTheNext.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // panel4
             // 
@@ -325,6 +325,7 @@
             this.Search_Button.TabIndex = 2;
             this.Search_Button.Text = "Search";
             this.Search_Button.UseVisualStyleBackColor = true;
+            this.Search_Button.Click += new System.EventHandler(this.Search_Button_Click);
             this.Search_Button.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
             this.Search_Button.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
@@ -378,13 +379,13 @@
             this.label5.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
             this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
-            // dataGridView1
+            // Asset_DataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Asset_DataGridView.AllowUserToAddRows = false;
+            this.Asset_DataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.Asset_DataGridView.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -392,9 +393,9 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.ColumnHeadersHeight = 45;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Asset_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.Asset_DataGridView.ColumnHeadersHeight = 45;
+            this.Asset_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.AssetCategory,
@@ -410,15 +411,15 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 574);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1258, 273);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
-            this.dataGridView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
+            this.Asset_DataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Asset_DataGridView.Location = new System.Drawing.Point(12, 574);
+            this.Asset_DataGridView.Name = "Asset_DataGridView";
+            this.Asset_DataGridView.RowHeadersVisible = false;
+            this.Asset_DataGridView.RowTemplate.Height = 45;
+            this.Asset_DataGridView.Size = new System.Drawing.Size(1258, 273);
+            this.Asset_DataGridView.TabIndex = 3;
+            this.Asset_DataGridView.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
+            this.Asset_DataGridView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -426,7 +427,6 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "AssetNumber";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -488,7 +488,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1282, 863);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Asset_DataGridView);
             this.Controls.Add(this.Upkeep_DataGridView);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
@@ -512,7 +512,7 @@
             this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Asset_DataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -528,12 +528,6 @@
         private ComboBox UpkeepType_ComboBox;
         private Label label3;
         private DataGridView Upkeep_DataGridView;
-        private DataGridViewTextBoxColumn AssetNumber;
-        private DataGridViewTextBoxColumn AssetName;
-        private DataGridViewTextBoxColumn Department;
-        private DataGridViewTextBoxColumn LastupkeepDate;
-        private DataGridViewTextBoxColumn UpkeepCircle;
-        private DataGridViewTextBoxColumn TimeFromTheNext;
         private Panel panel4;
         private Label label4;
         private Panel panel5;
@@ -543,7 +537,13 @@
         private ComboBox Category_ComboBox;
         private Label label6;
         private Button Search_Button;
-        private DataGridView dataGridView1;
+        private DataGridView Asset_DataGridView;
+        private DataGridViewTextBoxColumn AssetNumber;
+        private DataGridViewTextBoxColumn AssetName;
+        private DataGridViewTextBoxColumn Department;
+        private DataGridViewTextBoxColumn LastupkeepDate;
+        private DataGridViewTextBoxColumn UpkeepCircle;
+        private DataGridViewTextBoxColumn TimeFromTheNext;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn AssetCategory;
