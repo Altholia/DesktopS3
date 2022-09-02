@@ -28,5 +28,34 @@ public class AssetDataGridViewDisplayDto
                 _ => throw new IndexOutOfRangeException(nameof(index))
             };
         }
+        set
+        {
+            switch (index)
+            {
+                case 0:
+                    AssetNumber = (string)value;
+                    break;
+                case 1:
+                    AssetName = (string)value;
+                    break;
+                case 2:
+                    AssetCategory = (string)value;
+                    break;
+                case 3:
+                    Department = (string)value;
+                    break;
+                case 4:
+                    ManufactureDate = (string)value;
+                    break;
+                case 5:
+                    ServiceDate = (string)value;
+                    break;
+                case 6:
+                    RegistrationTime= (string)value;
+                    break;
+                default:
+                    throw new IndexOutOfRangeException(nameof(index));
+            }
+        }
     }
 }

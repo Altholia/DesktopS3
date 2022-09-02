@@ -10,6 +10,7 @@ namespace DesktopS3_UI
 {
     public partial class AssetStatisticsForm : ParentForm
     {
+        public static AssetStatisticsForm InstanceForm { get; private set; }//单例
         protected override CreateParams CreateParams
         {
             get
@@ -23,6 +24,7 @@ namespace DesktopS3_UI
         public AssetStatisticsForm()
         {
             InitializeComponent();
+            InstanceForm = this;
         }
 
         private void AssetStatisticsForm_Load(object sender, EventArgs e)
@@ -175,6 +177,23 @@ namespace DesktopS3_UI
                     }
                 });
             });
+        }
+
+        private void Asset_DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            int columnIndex = e.ColumnIndex;
+            if (rowIndex < 0 || columnIndex != 7)
+                return;
+
+            AssetDataGridViewDisplayDto dto = new();
+            for (int column = 0; column < Asset_DataGridView.Columns.Count-1; column++)
+            {
+                dto[column] = Asset_DataGridView.Rows[rowIndex].Cells[column].Value;
+            }
+
+            Hide();
+            new AssetProfileForm(dto).Show();
         }
 
         private async void AssetStatisticsForm_MouseHover(object sender, EventArgs e)

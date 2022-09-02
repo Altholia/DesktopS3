@@ -26,6 +26,15 @@
         },
         "runtime": {
           "DesktopS3_BLL.dll": {}
+        }
+      },
+      "DesktopS3_DAL/1.0.0": {
+        "dependencies": {
+          "DesktopS3_Helper": "1.0.0",
+          "DesktopS3_Models": "1.0.0"
+        },
+        "runtime": {
+          "DesktopS3_DAL.dll": {}
         },
         "resources": {
           "zh-CHS/System.Data.Linq.resources.dll": {
@@ -40,15 +49,6 @@
           "zh-CHS/System.Data.Entity.resources.dll": {
             "locale": "zh-CHS"
           }
-        }
-      },
-      "DesktopS3_DAL/1.0.0": {
-        "dependencies": {
-          "DesktopS3_Helper": "1.0.0",
-          "DesktopS3_Models": "1.0.0"
-        },
-        "runtime": {
-          "DesktopS3_DAL.dll": {}
         }
       },
       "DesktopS3_Helper/1.0.0": {

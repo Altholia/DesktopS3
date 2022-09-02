@@ -64,7 +64,7 @@
             this.ManufactureDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServiceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegistrationTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AssetProfile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssetProfile = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -418,6 +418,7 @@
             this.Asset_DataGridView.RowTemplate.Height = 45;
             this.Asset_DataGridView.Size = new System.Drawing.Size(1258, 273);
             this.Asset_DataGridView.TabIndex = 3;
+            this.Asset_DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Asset_DataGridView_CellContentClick);
             this.Asset_DataGridView.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
             this.Asset_DataGridView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);
             // 
@@ -481,7 +482,7 @@
             this.AssetProfile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.AssetProfile.HeaderText = "AssetProfile";
             this.AssetProfile.Name = "AssetProfile";
-            this.AssetProfile.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.AssetProfile.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // AssetStatisticsForm
             // 
@@ -551,6 +552,6 @@
         private DataGridViewTextBoxColumn ManufactureDate;
         private DataGridViewTextBoxColumn ServiceDate;
         private DataGridViewTextBoxColumn RegistrationTime;
-        private DataGridViewTextBoxColumn AssetProfile;
+        private DataGridViewLinkColumn AssetProfile;
     }
 }

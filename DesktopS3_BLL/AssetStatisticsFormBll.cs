@@ -154,4 +154,12 @@ public class AssetStatisticsFormBll
 
         return dtoCollection;
     }
+
+    /// <summary>
+    /// 根据AssetName查询对应的Asset信息
+    /// </summary>
+    /// <param name="assetName">资产姓名</param>
+    /// <returns>返回查询到的资产信息</returns>
+    public static async Task<IEnumerable<Asset>> GetAssetIdByAssetNameAsync(string assetName) =>
+        await InstanceDal.GetAssetCollectionAsync(assetName: assetName);
 }
