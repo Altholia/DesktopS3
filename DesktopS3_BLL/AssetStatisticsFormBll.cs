@@ -1,13 +1,11 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
-using DesktopS3_Models.Entities;
-using System.Net;
-using System.Web.Script.Serialization;
+﻿using DesktopS3_Models.Entities;
 using DesktopS3_Helper;
 using DesktopS3_Models.DisplayDto;
-using DesktopS3_Models.Parameter;
-using static DesktopS3_Helper.HttpUrl;
+using DesktopS3_Models.DisplayDto.AssetProfileForm;
 using static DesktopS3_DAL.DesktopDal;
+using UpkeepDataGridViewDisplayDto = DesktopS3_Models.DisplayDto.UpkeepDataGridViewDisplayDto;
+using Upkeep = DesktopS3_Models.DisplayDto.AssetProfileForm.UpkeepDataGridViewDisplayDto;
+
 // ReSharper disable All
 
 namespace DesktopS3_BLL;
@@ -162,4 +160,65 @@ public class AssetStatisticsFormBll
     /// <returns>返回查询到的资产信息</returns>
     public static async Task<IEnumerable<Asset>> GetAssetIdByAssetNameAsync(string assetName) =>
         await InstanceDal.GetAssetCollectionAsync(assetName: assetName);
+
+    /// <summary>
+    /// 获取用于加载Transfer_DataGridView的信息
+    /// </summary>
+    /// <returns>返回信息</returns>
+    public static async Task<IEnumerable<TransferDataGridViewDisplayDto>> GetTransferDataGridViewInformation(string assetName)
+    {
+        Asset asset = await InstanceDal.GetAssetByNameAsync(assetName);
+        if (asset == null)
+            return null;
+
+        int assetId = asset.Id;
+        IEnumerable<AssetTransfer> assetTransfers = await InstanceDal.GetAssetTransferByAssetIdAsync(assetId);
+        if (assetTransfers == null)
+            return null;
+
+        List<TransferDataGridViewDisplayDto> dtoList = new();
+        await Parallel.ForEachAsync(assetTransfers, async delegate(AssetTransfer transfer, CancellationToken token)
+        {
+            Department fromDepartment = await InstanceDal.GetDepartmentByIdAsync(transfer.FromDepartmentId);
+            Department toDepartment = await InstanceDal.GetDepartmentByIdAsync(transfer.ToDepartmentId);
+
+            lock (dtoList)
+            {
+                TransferDataGridViewDisplayDto dto = new()
+                {
+                    Destination = toDepartment.Name,
+                    Start = fromDepartment.Name,
+                    TransferTime = transfer.TransferTime,
+                };
+                dtoList.Add(dto);
+            }
+        });
+
+        return dtoList;
+    }
+
+    public async static Task<IEnumerable<Upkeep>> GetUpkeepHistoryDataGridViewInformation(string assetName)
+    {
+        Asset asset = await InstanceDal.GetAssetByNameAsync(assetName);
+        if(asset == null) 
+            return null;
+
+        int assetId = asset.Id;
+        IEnumerable<UpkeepRecord> upkeepRecords = await InstanceDal.GetUpkeepRecordByAssetIdAsync(assetId);
+        if (!upkeepRecords.Any())
+            return null;
+
+        List<Upkeep> dtoList = new();
+        foreach (var upkeepRecord in upkeepRecords)
+        {
+            Upkeep dto = new()
+            {
+                UpkeepRemark = upkeepRecord.Remark,
+                UpkeepDate = upkeepRecord.UpkeepTime
+            };
+            dtoList.Add(dto);
+        }
+
+        return dtoList;
+    }
 }

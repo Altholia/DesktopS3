@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net;
 using System.Web.Script.Serialization;
+using System.Xml;
 using DesktopS3_Helper;
 using DesktopS3_Models.DisplayDto;
 using DesktopS3_Models.Entities;
@@ -71,7 +72,7 @@ public class DesktopDal
     public async Task<IEnumerable<Asset>> GetAssetCollectionAsync(int? assetId = null, int? upkeepTypeId = null,
         string assetName=null!,int? assetCategoryId=null)
     {
-        const string _uri = $"/Asset";
+        const string _uri = $"/Assets";
 
         GetAssetCollectionParameter parameter = new()
         {
@@ -92,6 +93,32 @@ public class DesktopDal
             return null;
 
         return dtoCollection;
+    }
+
+    /// <summary>
+    /// 根据Name字段查询Asset
+    /// </summary>
+    /// <param name="assetName">Asset的Name字段</param>
+    /// <returns>返回Asset</returns>
+    public async Task<Asset> GetAssetByNameAsync(string assetName)
+    {
+        string[] names = assetName.Split(' ');
+        string uri = $"/Asset?assetName={names[0]}";
+        for (int i = 1; i < names.Length; i++)
+        {
+            uri += $"+{names[i]}";
+        }
+
+        HttpResponseMessage message = await HttpGet(uri);
+        if (message == null || message.StatusCode != HttpStatusCode.OK)
+            return null;
+
+        string assetString = await message.Content.ReadAsStringAsync();
+        Asset asset = _js.Deserialize<Asset>(assetString);
+        if (asset == null)
+            return null;
+
+        return asset;
     }
 
     /// <summary>
@@ -136,5 +163,68 @@ public class DesktopDal
             return null;
 
         return dto;
+    }
+
+    /// <summary>
+    /// 根据Department的Id字段查询对应的Department
+    /// </summary>
+    /// <param name="id">Department的Id字段</param>
+    /// <returns>返回查询到的Department信息</returns>
+    public async Task<Department> GetDepartmentByIdAsync(int id)
+    {
+        string uri = $"/Department/{id}";
+
+        HttpResponseMessage message = await HttpGet(uri);
+        if (message == null || message.StatusCode != HttpStatusCode.OK)
+            return null;
+
+        string departmentString = await message.Content.ReadAsStringAsync();
+        if (departmentString == null)
+            return null;
+
+        Department dto = _js.Deserialize<Department>(departmentString);
+        if (dto == null)
+            return null;
+
+        return dto;
+    }
+
+    /// <summary>
+    /// 根据assetId查询AssetTransfer
+    /// </summary>
+    /// <param name="assetId">资产ID</param>
+    /// <returns>返回AssetTransfer集合</returns>
+    public async Task<IEnumerable<AssetTransfer>> GetAssetTransferByAssetIdAsync(int assetId)
+    {
+        string uri = $"/AssetTransfers?assetId={assetId}";
+
+        HttpResponseMessage message = await HttpGet(uri);
+        if (message == null || message.StatusCode != HttpStatusCode.OK)
+            return null;
+
+        string assetTransferString = await message.Content.ReadAsStringAsync();
+        if (string.IsNullOrEmpty(assetTransferString))
+            return null;
+
+        IEnumerable<AssetTransfer> assetTransfer = _js.Deserialize<IEnumerable<AssetTransfer>>(assetTransferString);
+        if (assetTransfer == null)
+            return null;
+
+        return assetTransfer;
+    }
+
+    public async Task<IEnumerable<UpkeepRecord>> GetUpkeepRecordByAssetIdAsync(int assetId)
+    {
+        string uri = $"/UpkeepRecords?assetId={assetId}";
+
+        HttpResponseMessage message = await HttpGet(uri);
+        if (message == null || message.StatusCode != HttpStatusCode.OK)
+            return null;
+
+        string upkeepRecordString = await message.Content.ReadAsStringAsync();
+        IEnumerable<UpkeepRecord> dtoCollection = _js.Deserialize<IEnumerable<UpkeepRecord>>(upkeepRecordString);
+        if (dtoCollection == null)
+            return null;
+        return dtoCollection;
     }
 }

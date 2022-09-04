@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -409,6 +411,8 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Transfer_DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Transfer_DataGridView.RowHeadersVisible = false;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Transfer_DataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Transfer_DataGridView.RowTemplate.Height = 45;
             this.Transfer_DataGridView.Size = new System.Drawing.Size(384, 448);
             this.Transfer_DataGridView.TabIndex = 2;
@@ -440,21 +444,6 @@
             // 
             this.Upkeep_DataGridView.AllowUserToAddRows = false;
             this.Upkeep_DataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Upkeep_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.Upkeep_DataGridView.ColumnHeadersHeight = 40;
-            this.Upkeep_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UpkeepRemark,
-            this.UpkeepDate});
-            this.Upkeep_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Upkeep_DataGridView.Location = new System.Drawing.Point(393, 48);
-            this.Upkeep_DataGridView.Name = "Upkeep_DataGridView";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -462,8 +451,26 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Upkeep_DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.Upkeep_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.Upkeep_DataGridView.ColumnHeadersHeight = 40;
+            this.Upkeep_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UpkeepRemark,
+            this.UpkeepDate});
+            this.Upkeep_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Upkeep_DataGridView.Location = new System.Drawing.Point(393, 48);
+            this.Upkeep_DataGridView.Name = "Upkeep_DataGridView";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Upkeep_DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.Upkeep_DataGridView.RowHeadersVisible = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Upkeep_DataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.Upkeep_DataGridView.RowTemplate.Height = 45;
             this.Upkeep_DataGridView.Size = new System.Drawing.Size(384, 448);
             this.Upkeep_DataGridView.TabIndex = 3;

@@ -72,8 +72,10 @@ namespace DesktopS3_UI
                     MessageBox.Show(@"用户不存在", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
+                    Password_TextBox.Clear();
+
                     Hide();
-                    new AssetStatisticsForm().Show();
+                    new NavigationScreenForm().Show();
                     return;
                 }
             }
@@ -121,6 +123,15 @@ namespace DesktopS3_UI
         private void LoginForm_MouseMove(object sender, MouseEventArgs e)
         {
             StopTask();
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var message = MessageBox.Show(@"确定关闭吗", @"提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (message == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

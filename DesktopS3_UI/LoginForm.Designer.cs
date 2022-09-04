@@ -143,6 +143,7 @@
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Deactivate += new System.EventHandler(this.LoginForm_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.MouseHover += new System.EventHandler(this.LoginForm_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);

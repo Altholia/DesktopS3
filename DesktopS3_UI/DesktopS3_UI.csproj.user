@@ -19,5 +19,8 @@
     <Compile Update="ParentForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TransportationStatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -32,6 +32,7 @@
             switch (name)
             {
                 case $"{nameof(Asset_Button)}":
+                    new AssetStatisticsForm().Show();
                     break;
                 case $"{nameof(Transportation_Button)}":
                     break;
@@ -41,6 +42,12 @@
                     MessageBox.Show($@"未选择导航属性", $@"警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     break;
             }
+            Dispose();
+        }
+
+        private void NavigationScreenForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm.InstanceForm.Show();
         }
     }
 }

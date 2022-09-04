@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DisplayDto\" />
+    <Folder Include="DisplayDto\AssetProfileForm\" />
     <Folder Include="Entities\" />
   </ItemGroup>
 

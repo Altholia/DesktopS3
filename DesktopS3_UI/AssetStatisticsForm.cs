@@ -65,9 +65,19 @@ namespace DesktopS3_UI
                     if (Name_Combox.Items.Count == dtoCollection.Count())
                         return;
 
-                    BeginInvoke(() => { Name_Combox.Items.Clear(); });
+                    BeginInvoke(() =>
+                    {
+                        Name_Combox.Items.Clear();
+                        Name_Combox.Items.Add("All");
+                    });
                     Parallel.ForEach(dtoCollection,
-                        dto => { BeginInvoke(() => { Name_Combox.Items.Add(dto.Name); }); });
+                        dto => 
+                        { 
+                            BeginInvoke(() =>
+                            {
+                                Name_Combox.Items.Add(dto.Name);
+                            });
+                        });
                 }
                 catch (ArgumentNullException)
                 {
@@ -91,7 +101,11 @@ namespace DesktopS3_UI
                     if (Category_ComboBox.Items.Count == dtoCollection.Count())
                         return;
 
-                    BeginInvoke(() => { Category_ComboBox.Items.Clear(); });
+                    BeginInvoke(() =>
+                    {
+                        Category_ComboBox.Items.Clear();
+                        Category_ComboBox.Items.Add("All");
+                    });
                     Parallel.ForEach(dtoCollection,
                         dto => { BeginInvoke(() => { Category_ComboBox.Items.Add(dto.Name); }); });
                 }
@@ -153,6 +167,11 @@ namespace DesktopS3_UI
 
             string assetName = Name_Combox.Text.Trim();
             string categoryName = Category_ComboBox.Text.Trim();
+            if (assetName == "All")
+                assetName = null!;
+
+            if (categoryName == "All")
+                categoryName = null!;
 
             IEnumerable<AssetDataGridViewDisplayDto> dtoCollection = 
                 await GetAssetDataGridViewInformationAsync(assetName, categoryName);
@@ -210,6 +229,11 @@ namespace DesktopS3_UI
         private void AssetStatisticsForm_Deactivate(object sender, EventArgs e)
         {
             ReleaseTask();//当窗体隐藏时释放锁屏任务
+        }
+
+        private void AssetStatisticsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            new NavigationScreenForm().Show();
         }
     }
 }

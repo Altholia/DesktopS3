@@ -334,6 +334,8 @@
             this.Category_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Category_ComboBox.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Category_ComboBox.FormattingEnabled = true;
+            this.Category_ComboBox.Items.AddRange(new object[] {
+            "All"});
             this.Category_ComboBox.Location = new System.Drawing.Point(611, 15);
             this.Category_ComboBox.Name = "Category_ComboBox";
             this.Category_ComboBox.Size = new System.Drawing.Size(248, 35);
@@ -359,6 +361,8 @@
             this.Name_Combox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Name_Combox.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name_Combox.FormattingEnabled = true;
+            this.Name_Combox.Items.AddRange(new object[] {
+            "All"});
             this.Name_Combox.Location = new System.Drawing.Point(144, 15);
             this.Name_Combox.Name = "Name_Combox";
             this.Name_Combox.Size = new System.Drawing.Size(248, 35);
@@ -499,6 +503,7 @@
             this.Name = "AssetStatisticsForm";
             this.Text = "AssetStatisticsForm";
             this.Deactivate += new System.EventHandler(this.AssetStatisticsForm_Deactivate);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AssetStatisticsForm_FormClosed);
             this.Load += new System.EventHandler(this.AssetStatisticsForm_Load);
             this.MouseHover += new System.EventHandler(this.AssetStatisticsForm_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AssetStatisticsForm_MouseMove);

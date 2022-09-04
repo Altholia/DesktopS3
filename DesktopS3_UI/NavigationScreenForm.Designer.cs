@@ -92,6 +92,7 @@
             this.MaximizeBox = false;
             this.Name = "NavigationScreenForm";
             this.Text = "NavigationScreenForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NavigationScreenForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
