@@ -213,6 +213,11 @@ public class DesktopDal
         return assetTransfer;
     }
 
+    /// <summary>
+    /// 根据assetId获取UpkeepRecord
+    /// </summary>
+    /// <param name="assetId">资产ID</param>
+    /// <returns>返回UpkeepRecord</returns>
     public async Task<IEnumerable<UpkeepRecord>> GetUpkeepRecordByAssetIdAsync(int assetId)
     {
         string uri = $"/UpkeepRecords?assetId={assetId}";
@@ -226,5 +231,58 @@ public class DesktopDal
         if (dtoCollection == null)
             return null;
         return dtoCollection;
+    }
+
+    /// <summary>
+    /// 根据开始时间和结束时间对TransporationTask进行过滤搜索
+    /// </summary>
+    /// <param name="parameter">过滤条件</param>
+    /// <returns>返回查询到的TransporationTask集合</returns>
+    public async Task<IEnumerable<TransporationTask>> GetTransporationTaskCollectionAsync(
+        GetTransporationTaskCollectionParameter parameter)
+    {
+        const string uri = $"/TransporationTask";
+
+        var bodyClass = new
+        {
+            parameter.StartDate,
+            parameter.EndDate
+        };
+
+        string bodyString = _js.Serialize(bodyClass);
+        HttpResponseMessage message = await HttpPost(uri, bodyString);
+
+        if(message==null||message.StatusCode!= HttpStatusCode.OK) 
+            return null;
+
+        string transporationTaskString = await message.Content.ReadAsStringAsync();
+        if (string.IsNullOrEmpty(transporationTaskString))
+            return null;
+
+        IEnumerable<TransporationTask> dtoCollection =
+            _js.Deserialize<IEnumerable<TransporationTask>>(transporationTaskString);
+
+        return dtoCollection;
+    }
+
+    /// <summary>
+    /// 根据CityId查询City
+    /// </summary>
+    /// <param name="cityId">城市ID</param>
+    /// <returns>返回City</returns>
+    public async Task<City> GetCityByIdAsync(int cityId)
+    {
+        string uri = $"/City/{cityId}";
+
+        HttpResponseMessage message = await HttpGet(uri);
+        if (message == null || message.StatusCode != HttpStatusCode.OK)
+            return null;
+
+        string cityString = await message.Content.ReadAsStringAsync();
+        City city = _js.Deserialize<City>(cityString);
+        if (city == null)
+            return null;
+
+        return city;
     }
 }

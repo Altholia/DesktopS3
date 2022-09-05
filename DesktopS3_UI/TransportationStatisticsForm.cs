@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DesktopS3_UI
+﻿namespace DesktopS3_UI
 {
     public partial class TransportationStatisticsForm : ParentForm
     {
@@ -25,6 +15,12 @@ namespace DesktopS3_UI
         public TransportationStatisticsForm()
         {
             InitializeComponent();
+        }
+
+        private void Search_Button_Click(object sender, EventArgs e)
+        {
+            string startDate = FromDate_DateTime.Value.ToString("yyyy-MM-ddThh:mm:ss");
+            string endDate = ToDate_DateTime.Value.ToString("yyyy-MM-ddThh:mm:ss");
         }
     }
 }

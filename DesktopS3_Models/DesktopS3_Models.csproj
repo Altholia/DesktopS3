@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="DisplayDto\AssetProfileForm\" />
+    <Folder Include="DisplayDto\TransportationStatisticsForm\" />
     <Folder Include="Entities\" />
   </ItemGroup>
 
